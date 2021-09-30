@@ -1,0 +1,70 @@
+#player {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(35, 205, 211);
+    /* position: absolute; */
+    /* left: 123px;
+    top: 458px; */
+    transition: 0.5s;
+}
+
+#wall {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(9, 5, 226);
+}
+
+#caminho {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+}
+
+#start {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(10, 240, 2);
+}
+
+#finish {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(255, 0, 0);
+}
+
+#linha {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#victory {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(111, 125, 200, 0.8);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    animation: vitoria 1s;
+}
+
+h1 {
+    text-align: center;
+    color: beige;
+    font-size: 100px;
+    text-shadow: 5px 5px 5px black;
+}
+
+@keyframes vitoria {
+    from {
+        width: 0;
+        height: 0;
+    }
+    to {
+        width: 100vw;
+        height: 100vh;
+    }
+}
