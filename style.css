@@ -1,38 +1,30 @@
-#player {
+div {
     width: 50px;
     height: 50px;
+}
+
+#player {
     background-color: rgb(35, 205, 211);
-    /* position: absolute; */
-    /* left: 123px;
-    top: 458px; */
     transition: 0.5s;
 }
 
 #wall {
-    width: 50px;
-    height: 50px;
     background-color: rgb(9, 5, 226);
 }
 
-#caminho {
-    width: 50px;
-    height: 50px;
+#way {
     background-color: rgb(255, 255, 255);
 }
 
 #start {
-    width: 50px;
-    height: 50px;
     background-color: rgb(10, 240, 2);
 }
 
 #finish {
-    width: 50px;
-    height: 50px;
     background-color: rgb(255, 0, 0);
 }
 
-#linha {
+#line {
     display: flex;
     justify-content: center;
     align-items: center;

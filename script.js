@@ -18,14 +18,11 @@ const map = [
 const body = document.getElementById('field')
 const player = document.createElement('div')
 
-
 const createField = function() {
-    let posY = 0
-    let posX = 0
     for (let i = 0; i < map.length; i++) {
-        const linha = document.createElement('section')
-        linha.id = 'linha'
-        body.appendChild(linha)
+        const line = document.createElement('section')
+        line.id = 'line'
+        body.appendChild(line)
         for (let j = 0; j < map[i].length; j++) {
 
             player.id = 'player'
@@ -34,66 +31,67 @@ const createField = function() {
                 fieldGenerator.id = 'wall'
             }
             if (map[i][j] === ' ') {
-                fieldGenerator.id = 'caminho'
+                fieldGenerator.id = 'way'
             }
             if (map[i][j] === 'S') {
                 fieldGenerator.id = 'start'
-                linha.appendChild(fieldGenerator)
+                line.appendChild(fieldGenerator)
                 const inicio = document.getElementById('start')
+                player.dataset.pos = `${i}-${j}`
                 inicio.appendChild(player)
             }
             if (map[i][j] === 'F') {
                 fieldGenerator.id = 'finish'
-
             }
             fieldGenerator.dataset.pos = `${i}-${j}`
-            linha.appendChild(fieldGenerator)
+            line.appendChild(fieldGenerator)
         }
     }
 }
 createField()
 
-let x = 1;
+let x = 0;
 let y = 9;
+
+
 document.addEventListener('keydown', (event) => {
     const keyName = event.key;
-    const compare = document.querySelector(`div[data-pos="${y}-${x}"`)
     const dataParent = document.querySelector('#player').parentElement.dataset.pos
-
     if (keyName === 'ArrowDown') {
+
         y++
-        if (compare.id === "caminho") {
+        const compare = document.querySelector(`div[data-pos="${y}-${x}"`)
+        if (compare.id === "way") {
             compare.appendChild(player)
-        }
-        if (compare.id === "wall") {
-            y -= 2
+        } else if (compare.id === 'wall') {
+            y--
         }
     }
     if (keyName === 'ArrowUp') {
         y--
-        if (compare.id === "caminho") {
+        const compare = document.querySelector(`div[data-pos="${y}-${x}"`)
+        if (compare.id === "way") {
             compare.appendChild(player)
-        }
-        if (compare.id === "wall") {
-            y += 2
+        } else if (compare.id === 'wall') {
+            y++
         }
     }
     if (keyName === 'ArrowLeft') {
         x--
-        if (compare.id === "caminho") {
+        const compare = document.querySelector(`div[data-pos="${y}-${x}"`)
+        if (compare.id === "way") {
             compare.appendChild(player)
-        }
-        if (compare.id === "wall") {
-            x += 2
+        } else if (compare.id === 'wall') {
+            x++
         }
     }
     if (keyName === 'ArrowRight') {
         x++
-        if (compare.id === "caminho") {
+        const compare = document.querySelector(`div[data-pos="${y}-${x}"`)
+        if (compare.id === "way") {
             compare.appendChild(player)
-        }
-        if (compare.id === "wall") {
-            x -= 2
+        } else if (compare.id === 'wall') {
+            x--
         }
         if (compare.id === "finish") {
             const vitoria = document.createElement('section')
@@ -103,14 +101,7 @@ document.addEventListener('keydown', (event) => {
             h1.innerText = 'Você conseguiu'
             vitoria.appendChild(h1)
             compare.appendChild(player)
-
         }
     }
 
-    console.log("comparativo", compare.dataset.pos)
-    console.log("Player", dataParent)
-    console.log("comparativo", compare.id)
-
-
-    //console.log(playerMap)
 })
