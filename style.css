@@ -4,8 +4,9 @@ div {
 }
 
 #player {
+    border-radius: 50%;
     background-color: rgb(35, 205, 211);
-    transition: 0.5s;
+    transition: 1s;
 }
 
 #wall {

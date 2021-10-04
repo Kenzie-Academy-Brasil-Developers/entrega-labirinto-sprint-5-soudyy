@@ -58,7 +58,6 @@ document.addEventListener('keydown', (event) => {
     const keyName = event.key;
     const dataParent = document.querySelector('#player').parentElement.dataset.pos
     if (keyName === 'ArrowDown') {
-
         y++
         const compare = document.querySelector(`div[data-pos="${y}-${x}"`)
         if (compare.id === "way") {
@@ -81,7 +80,7 @@ document.addEventListener('keydown', (event) => {
         const compare = document.querySelector(`div[data-pos="${y}-${x}"`)
         if (compare.id === "way") {
             compare.appendChild(player)
-        } else if (compare.id === 'wall') {
+        } else if (compare.id === 'wall' || compare.id === "start") {
             x++
         }
     }
